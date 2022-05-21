@@ -1,7 +1,7 @@
 import React from 'react';
-import circle from '../../assets/images/circle.svg'
-import bottom from '../../assets/images/bottom.jpg'
-import front from '../../assets/images/front.jpg'
+import circle from '../../../assets/images/circle.svg'
+import bottom from '../../../assets/images/bottom.jpg'
+import front from '../../../assets/images/front.jpg'
 
 const Banner = () => {
     return (
