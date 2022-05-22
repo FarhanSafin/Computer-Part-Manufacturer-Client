@@ -6,7 +6,7 @@ const useParts = () => {
     const [parts, setParts] = useState([]);
 
     useEffect(()=>{
-        fetch('')
+        fetch('http://localhost:5000/partslist')
         .then(res => res.json())
         .then(data => setParts(data));
     }, []);
