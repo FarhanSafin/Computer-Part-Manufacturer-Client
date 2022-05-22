@@ -12,8 +12,11 @@ const Parts = () => {
   <div class="hero-content flex-col lg:flex-row-reverse">
     <img src="https://api.lorem.space/image/movie?w=260&h=400" class="max-w-sm rounded-lg shadow-2xl" />
     <div>
-      <h1 class="text-5xl font-bold">{part.name}</h1>
-      <p class="py-6">{part.price}</p>
+      <h1 class="text-3xl font-bold">{part.name}</h1>
+      <p class="py-6 text-xl">Description: {part.description}</p>
+      <p class="py-6">Available: {part.available}</p>
+      <p class="py-6">Minimum Order{part.minimum}</p>
+      <p class="py-6">Price: {part.price}</p>
       <button class="btn btn-primary mt-32">Order Now</button>
     </div>
   </div>
