@@ -3,6 +3,7 @@ import './App.css';
 import About from './Pages/About/About';
 import AllParts from './Pages/AllParts/AllParts';
 import Blog from './Pages/Blog/Blog';
+import Dashboard from './Pages/DashBoard/Dashboard';
 import Home from './Pages/Home/Home/Home';
 import Registration from './Pages/Home/Registration/Registration';
 import Login from './Pages/Login/Login/Login';
@@ -23,6 +24,7 @@ function App() {
         <Route path='/allparts' element={
           <RequireAuth><AllParts></AllParts></RequireAuth>}></Route>
         <Route path='/part/:partId' element={<RequireAuth><PartDetail></PartDetail></RequireAuth>}></Route>
+        <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}></Route>
         <Route path='/registration' element={<Registration></Registration>}></Route>
         <Route path='/about' element={<About></About>}></Route>
       </Routes>

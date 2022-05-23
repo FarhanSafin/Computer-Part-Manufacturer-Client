@@ -53,7 +53,7 @@ const Navbar = () => {
         <li><Link to='/home'>Home</Link></li>
         {
                                 user && <>
-                                <li><Link to='/home'>Later</Link></li>
+                                <li><Link to='/dashboard'>Dashboard</Link></li>
                                 </>
                             }
                             {
