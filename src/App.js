@@ -7,6 +7,7 @@ import Home from './Pages/Home/Home/Home';
 import Registration from './Pages/Home/Registration/Registration';
 import Login from './Pages/Login/Login/Login';
 import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
+import PartDetail from './Pages/PartDetail/PartDetail';
 import Footer from './Pages/Shared/Footer/Footer';
 import Navbar from './Pages/Shared/Navbar/Navbar';
 
@@ -19,7 +20,9 @@ function App() {
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
-        <Route path='/allparts' element={<AllParts></AllParts>}></Route>
+        <Route path='/allparts' element={
+          <RequireAuth><AllParts></AllParts></RequireAuth>}></Route>
+        <Route path='/part/:partId' element={<RequireAuth><PartDetail></PartDetail></RequireAuth>}></Route>
         <Route path='/registration' element={<Registration></Registration>}></Route>
         <Route path='/about' element={<About></About>}></Route>
       </Routes>

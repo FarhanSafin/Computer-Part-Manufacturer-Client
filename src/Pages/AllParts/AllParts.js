@@ -1,8 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import useParts from '../../hooks/useParts';
 
 const AllParts = () => {
     const [parts] = useParts();
+    const navigate = useNavigate();
+    const showPartDetail = id => {
+        const path = `/part/${id}`;
+        navigate(path);
+    }
     return (
         <div >
         <h2 id='parts' className='text-6xl text-center mt-32 mb-16'>Available Parts</h2>
@@ -17,7 +23,7 @@ const AllParts = () => {
   <p className="py-6">Available: {data.available}</p>
   <p className="py-6">Minimum Order{data.minimum}</p>
   <p className="py-6">Price: {data.price}</p>
-  <button className="btn btn-outline btn-secondary mt-32">Place Order</button>
+  <button className="btn btn-outline btn-secondary mt-32" onClick={() => showPartDetail(data._id)}>Place Order</button>
 </div>
 </div>
 </div>)
