@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router';
 import './App.css';
 import About from './Pages/About/About';
+import AllParts from './Pages/AllParts/AllParts';
 import Blog from './Pages/Blog/Blog';
 import Home from './Pages/Home/Home/Home';
 import Registration from './Pages/Home/Registration/Registration';
@@ -17,11 +18,8 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
-        <Route path='/blog' element={
-        <RequireAuth>
-        <Blog></Blog>
-        </RequireAuth>
-        }></Route>
+        <Route path='/blog' element={<Blog></Blog>}></Route>
+        <Route path='/allparts' element={<AllParts></AllParts>}></Route>
         <Route path='/registration' element={<Registration></Registration>}></Route>
         <Route path='/about' element={<About></About>}></Route>
       </Routes>
