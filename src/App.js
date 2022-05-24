@@ -8,6 +8,9 @@ import Home from './Pages/Home/Home/Home';
 import Registration from './Pages/Home/Registration/Registration';
 import Login from './Pages/Login/Login/Login';
 import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
+import MyOrder from './Pages/MyOrder/MyOrder';
+import MyProfile from './Pages/MyProfile/MyProfile';
+import MyReview from './Pages/MyReview/MyReview';
 import PartDetail from './Pages/PartDetail/PartDetail';
 import Footer from './Pages/Shared/Footer/Footer';
 import Navbar from './Pages/Shared/Navbar/Navbar';
@@ -24,7 +27,11 @@ function App() {
         <Route path='/allparts' element={
           <RequireAuth><AllParts></AllParts></RequireAuth>}></Route>
         <Route path='/part/:partId' element={<RequireAuth><PartDetail></PartDetail></RequireAuth>}></Route>
-        <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}></Route>
+        <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
+          <Route index element={<MyOrder></MyOrder>}></Route>
+          <Route path='profile' element={<MyProfile></MyProfile>}></Route>
+          <Route path='review' element={<MyReview></MyReview>}></Route>
+        </Route>
         <Route path='/registration' element={<Registration></Registration>}></Route>
         <Route path='/about' element={<About></About>}></Route>
       </Routes>
