@@ -97,53 +97,65 @@ const PartDetail = () => {
     }else{
       return (
         <div>
-        <div className="hero min-h-screen" style={{backgroundImage: "url(" + "https://images.pexels.com/photos/34153/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350" + ")"}}>
-  <div className="hero-overlay bg-opacity-60"></div>
-  <div className="hero-content text-center text-neutral-content">
-    <div className="max-w-md">
-      <h1 id='partname' className="mb-5 text-5xl font-bold">Name: {part.name}</h1>
-      <p className="mb-5">Description: {part.description}.</p>
-      <p className="mb-5">Available: {part.available}.</p>
-      <p id='min' className="mb-5">Minimum Order: {part.minimum}.</p>
-      <p className="mb-5">Price Per Unit: {part.price}.</p>
-      <div className='mx-16'>
-      <form className='text-center' onSubmit={handleSubmit(handleOrder)}>
+<div class="card lg:card-side bg-base-100 shadow-xl container mx-auto mt-36">
+  <figure><img src="https://api.lorem.space/image/album?w=400&h=400" alt="Album"/></figure>
+  <div class="card-body">
+    <h2 class="card-title text-center text-2xl font-bold mb-5">Name: {part.name}</h2>
+    <p>Description: {part.description}</p>
+    <p>Minimum: {part.minimum}</p>
+    <p>Available: {part.available}</p>
+    <p>Price: {part.price}</p>
+  </div>
+  <div>
+    <h2 className='text-center text-2xl font-bold'>Logged In User: </h2>
+    <p>Name: {user.displayName}</p>
+    <p>Email: {user.email}</p>
+  </div>
+</div>
 
-<div className="form-control w-full max-w-xs">
-<label className="label">
+
+
+
+
+
+
+
+      <div className='container mx-auto'>
+      <h2 className='text-3xl font-bold mt-5 text-center' >CheckOut Form</h2>
+      <form className='text-center mx-5' onSubmit={handleSubmit(handleOrder)}>
+
+<div className="form-control w-full max-w-xs md:mx-80">
+<label className="label md:mx-96">
 <span className="label-text">Address</span>
 </label>
-<input type="text" placeholder="Your Address" className="input input-bordered w-full max-w-xs" required {...register("address")}/>
+<input type="text" placeholder="Your Address" className="input input-bordered w-full max-w-xs md:mx-64" required {...register("address")}/>
 </div>
 
 
-<div className="form-control w-full max-w-xs">
+<div className="form-control w-full max-w-xs md:mx-80">
 <label className="label">
-<span className="label-text">Mobile Number</span>
+<span className="label-text md:mx-96">Mobile Number</span>
 </label>
-<input type="number" placeholder="Your number" className="input input-bordered w-full max-w-xs" required {...register("mobile")}/>
+<input type="number" placeholder="Your number" className="input input-bordered w-full max-w-xs md:mx-64" required {...register("mobile")}/>
 
 </div>
 
-<div className="form-control w-full max-w-xs">
+<div className="form-control w-full max-w-xs md:mx-80">
 <label className="label">
-<span className="label-text">Ordered Amount</span>
+<span className="label-text md:mx-96">Ordered Amount</span>
 </label>
-<input id='amount' type="number" placeholder={part.minimum} onKeyUp={handleChange} className="input input-bordered w-full max-w-xs" required {...register("ordered")}/>
+<input id='amount' type="number" placeholder={part.minimum} onKeyUp={handleChange} className="input input-bordered w-full max-w-xs md:mx-64" required {...register("ordered")}/>
 
 
 </div>
 
 
-  <input className='btn w-full max-w-xs mt-5' disabled={!agree} type="submit" value="Order" />
+  <input className='btn w-half max-w-xs mt-5' disabled={!agree} type="submit" value="Place Order" />
 </form>
 </div>
-    </div>
-  </div>
-  
-</div>
 <ToastContainer />
-</div>
+    </div>
+
     )
     }
 
