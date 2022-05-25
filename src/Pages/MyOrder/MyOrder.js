@@ -36,8 +36,8 @@ const MyOrder = () => {
         return (
             <div>
                 <div>Total Order: {parts.length}</div>
-                <div class="overflow-x-auto mt-28">
-  <table class="table w-full">
+                <div className="overflow-x-auto mt-28">
+  <table className="table w-full">
     
     <thead>
       <tr>
@@ -50,16 +50,16 @@ const MyOrder = () => {
     </thead>
     <tbody >
     {
-        parts.map((part, index) => <tr>
+        parts.map((part, index) => <tr key={part._id}>
         <th>{index + 1}</th>
         <td>{part.userName}</td>
         <td>{part.partName}</td>
         <td>{part.ordered}</td>
         <td>{part.payment}</td>
-        <td className='d-flex border border-secondary'>
-                        <button className='btn btn-danger' onClick={() => handleDelete(part._id)}>            <svg xmlns="http://www.w3.org/2000/svg" className='icon' viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
-                        </svg>
+        <td className='d-flex'>
+                        <button className='btn btn-danger' onClick={() => handleDelete(part._id)}><svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+  <path strokeLinecap="round" strokeLinejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+</svg>
                         </button>
                         </td>
       </tr>)

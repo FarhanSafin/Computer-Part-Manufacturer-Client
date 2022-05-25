@@ -10,6 +10,7 @@ import Loading from '../Shared/Loading/Loading';
 const PartDetail = () => {
     const [user, loading] = useAuthState(auth);
     const { register,  handleSubmit } = useForm();
+    const [agree, setAgree] = useState(false);
     const {partId} = useParams();
     const [part, setPart] = useState({});
     useEffect(() => {
@@ -70,6 +71,26 @@ const PartDetail = () => {
           });
       }
     }
+
+    const handleChange = event => {
+      const minAmount = parseInt(part.minimum);
+      const available = parseInt(part.available);
+      console.log(minAmount, available);
+      if(event.target.value < minAmount || event.target.value > available){
+        setAgree(false);
+        toast.warn('Please order within the limit of available and minimum order', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
+      }else{
+        setAgree(true)
+      }
+    }
     
     if(loading){
       return <Loading></Loading>
@@ -108,13 +129,13 @@ const PartDetail = () => {
 <label className="label">
 <span className="label-text">Ordered Amount</span>
 </label>
-<input id='amount' type="number" placeholder={part.minimum} className="input input-bordered w-full max-w-xs" required {...register("ordered")}/>
+<input id='amount' type="number" placeholder={part.minimum} onKeyUp={handleChange} className="input input-bordered w-full max-w-xs" required {...register("ordered")}/>
 
 
 </div>
 
 
-  <input className='btn w-full max-w-xs mt-5' type="submit" value="Order" />
+  <input className='btn w-full max-w-xs mt-5' disabled={!agree} type="submit" value="Order" />
 </form>
 </div>
     </div>
