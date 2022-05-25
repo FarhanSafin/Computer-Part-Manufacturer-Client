@@ -12,6 +12,7 @@ const Reviews = () => {
   <figure><img src={review.pic} className="w-2/4 mb-6 mr-24" alt="Avatar"/></figure>
   <div className="card-body text-center mr-16 mt-5">
     <h2 className="card-title">{review.name}</h2>
+    <p className="mt-8">Description: {review.description}</p>
     <p className="mt-8">Rating: {review.rating}</p>
   </div>
 </div>)
