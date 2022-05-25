@@ -106,7 +106,7 @@ const total = price * orderedAmount;
       return (
         <div>
 <div class="card lg:card-side bg-base-100 shadow-xl container mx-auto mt-36">
-  <figure><img src="https://api.lorem.space/image/album?w=400&h=400" alt="Album"/></figure>
+  <figure><img src={part.pic} alt="Album"/></figure>
   <div class="card-body">
     <h2 class="card-title text-center text-2xl font-bold mb-5">Name: {part.name}</h2>
     <p>Description: {part.description}</p>

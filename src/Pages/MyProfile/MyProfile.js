@@ -56,7 +56,7 @@ const MyProfile = () => {
             return <Loading></Loading>
         }else{
             return (
-                <div>
+                <div className='text-2xl font-bold'>
                     <h2>MY PROFILE</h2>
                     <h2>Name: {user?.displayName || data?.name}</h2>
                     <h2>Email Address: {data?.email}</h2>
@@ -73,44 +73,44 @@ const MyProfile = () => {
     
     
                     <div>
-                    <form className='text-center mx-5' onSubmit={handleSubmit(handleProfile)}>
+                    <form className=' mx-5' onSubmit={handleSubmit(handleProfile)}>
     
-    <div className="form-control w-full max-w-xs md:mx-80">
-    <label className="label md:mx-96">
+    <div className="form-control w-full max-w-xs md:mx-80 mt-20 ">
+    <label className="label md:mx-60 mb-2">
     <span className="label-text">Location</span>
     </label>
-    <input type="text" placeholder="Your City" className="input input-bordered w-full max-w-xs md:mx-64" required {...register("location")}/>
+    <input type="text" placeholder="Your City" className="input input-bordered w-full max-w-xs md:mx-60 mb-2" required {...register("location")}/>
     </div>
     
     
     <div className="form-control w-full max-w-xs md:mx-80">
     <label className="label">
-    <span className="label-text md:mx-96">Mobile Number</span>
+    <span className="label-text md:mx-60 mb-2">Mobile Number</span>
     </label>
-    <input type="number" placeholder="Your number" className="input input-bordered w-full max-w-xs md:mx-64" required {...register("mobile")}/>
-    
-    </div>
-    
-    
-    <div className="form-control w-full max-w-xs md:mx-80">
-    <label className="label">
-    <span className="label-text md:mx-96">Education</span>
-    </label>
-    <input type="text" placeholder="Your education level" className="input input-bordered w-full max-w-xs md:mx-64" required {...register("education")}/>
+    <input type="number" placeholder="Your number" className="input input-bordered w-full max-w-xs md:mx-60 mb-2" required {...register("mobile")}/>
     
     </div>
     
     
     <div className="form-control w-full max-w-xs md:mx-80">
     <label className="label">
-    <span className="label-text md:mx-96">LinkedIn profile</span>
+    <span className="label-text md:mx-60 mb-2" >Education</span>
     </label>
-    <input type="text" placeholder="Your profile" className="input input-bordered w-full max-w-xs md:mx-64" required {...register("linkedin")}/>
+    <input type="text" placeholder="Your education level" className="input input-bordered w-full max-w-xs md:mx-60 mb-2" required {...register("education")}/>
     
     </div>
     
     
-      <input className='btn w-half max-w-xs mt-5' type="submit" value="Place Order" />
+    <div className="form-control w-full max-w-xs md:mx-80">
+    <label className="label">
+    <span className="label-text md:mx-60 mb-2">LinkedIn profile</span>
+    </label>
+    <input type="text" placeholder="Your profile" className="input input-bordered w-full max-w-xs md:mx-60" required {...register("linkedin")}/>
+    
+    </div>
+    
+    
+      <input className='btn w-half max-w-xs mt-5 md:mx-96 md:px-80' type="submit" value="Update Profile" />
     </form>
                     </div>
     

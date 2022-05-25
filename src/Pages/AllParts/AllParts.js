@@ -16,12 +16,12 @@ const AllParts = () => {
         {
             parts.map(data => <div key={data._id} className="hero mb-20 bg-slate-800 border-solid border-2 border-slate-400 rounded-lg">
 <div className="hero-content flex-col lg:flex-row-reverse">
-<img src="https://api.lorem.space/image/movie?w=260&h=400" className="max-w-sm rounded-lg shadow-2xl" alt='part' />
+<img src={data.pic} className="max-w-sm rounded-lg shadow-2xl w-3/5" alt='part' />
 <div>
   <h1 className="text-3xl font-bold">{data.name}</h1>
   <p className="py-6 text-xl">Description: {data.description}</p>
   <p className="py-6">Available: {data.available}</p>
-  <p className="py-6">Minimum Order{data.minimum}</p>
+  <p className="py-6">Minimum Quantity need to purchase: {data.minimum}</p>
   <p className="py-6">Price: {data.price}</p>
   <button className="btn btn-outline btn-secondary mt-32" onClick={() => showPartDetail(data._id)}>Place Order</button>
 </div>

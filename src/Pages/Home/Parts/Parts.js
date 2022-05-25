@@ -17,7 +17,7 @@ const Parts = () => {
           {
             slicedDatas.map(data => <div key={data._id} className="hero mb-20 bg-slate-800 border-solid border-2 border-slate-400 rounded-lg">
 <div className="hero-content flex-col lg:flex-row-reverse">
-  <img src="https://api.lorem.space/image/movie?w=260&h=400" className="max-w-sm rounded-lg shadow-2xl" alt='part'/>
+<img src={data.pic} className="max-w-sm rounded-lg shadow-2xl w-72" alt='part' />
   <div>
     <h1 className="text-3xl font-bold">{data.name}</h1>
     <p className="py-6 text-xl">Description: {data.description}</p>

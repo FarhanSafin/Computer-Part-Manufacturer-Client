@@ -9,6 +9,15 @@ const AddProduct = () => {
 
 
     const handlePart = async event => {
+      toast.info('Please Wait', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        })
         const image = event.pic[0];
         const formData = new FormData();
         formData.append('image', image)
