@@ -64,16 +64,16 @@ const MyReview = () => {
 
     return (
         <div>
-            <h2>MA REVIEW</h2>
+            <h2 className='text-center text-2xl font-bold'>Please add a review using the form below</h2>
 
 
             <form className='text-center mx-5' onSubmit={handleSubmit(handleReview)}>
 
 <div className="form-control w-full max-w-xs md:mx-80">
 <label className="label md:mx-96">
-<span className="label-text">Ratings</span>
+<span className="label-text md:px-8">Ratings</span>
 </label>
-<select class="select select-bordered w-full max-w-xs md:mx-64" {...register("rating")}>
+<select class="select select-bordered w-full max-w-xs md:mx-72" {...register("rating")}>
   <option selected>1</option>
   <option>2</option>
   <option>3</option>
@@ -85,9 +85,9 @@ const MyReview = () => {
 
 <div className="form-control w-full max-w-xs md:mx-80">
 <label className="label">
-<span className="label-text md:mx-96">Description</span>
+<span className="label-text md:mx-96 md:px-5">Description</span>
 </label>
-<input type="text" placeholder="Please write something about us" className="input input-bordered w-full max-w-xs md:mx-64" required {...register("description")}/>
+<input type="text" placeholder="Please write something about us" className="input input-bordered w-full max-w-xs md:mx-72" required {...register("description")}/>
 
 </div>
 
@@ -96,9 +96,9 @@ const MyReview = () => {
 
 <div className="form-control w-full max-w-xs md:mx-80">
 <label className="label">
-<span className="label-text md:mx-96">Photo</span>
+<span className="label-text md:mx-96 md:px-9">Photo</span>
 </label>
-<input type="file" className="pt-2 input input-bordered w-full max-w-xs md:mx-64" required {...register("pic")}/>
+<input type="file" className="pt-2 input input-bordered w-full max-w-xs md:mx-72" required {...register("pic")}/>
 
 </div>
 

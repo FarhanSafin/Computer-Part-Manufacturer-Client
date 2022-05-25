@@ -10,6 +10,7 @@ import Loading from '../Shared/Loading/Loading';
 const PartDetail = () => {
     const [user, loading] = useAuthState(auth);
     const { register,  handleSubmit } = useForm();
+    
     const [agree, setAgree] = useState(false);
     const {partId} = useParams();
     const [part, setPart] = useState({});
@@ -21,12 +22,19 @@ const PartDetail = () => {
         .then(data => setPart(data));
     }
       }
+
 , [user, partId]);
+
+const price = parseInt(part.price);
+let orderedAmount = parseInt(document.getElementById("amount")?.value);
+const total = price * orderedAmount;
 
     const handleOrder = event => {
       const minAmount = parseInt(part.minimum);
       const available = parseInt(part.available);
+      const price = parseInt(part.price);
       let orderedAmount = parseInt(document.getElementById("amount").value);
+      const total = price * orderedAmount;
       if(orderedAmount >= minAmount && orderedAmount <= available){
         const order ={
           partId: part._id,
@@ -36,6 +44,7 @@ const PartDetail = () => {
           userAddress: event.address,
           userPhone: event.mobile,
           ordered: event.ordered,
+          amount: total,
           payment: "Not Done"
         }
         
@@ -75,7 +84,6 @@ const PartDetail = () => {
     const handleChange = event => {
       const minAmount = parseInt(part.minimum);
       const available = parseInt(part.available);
-      console.log(minAmount, available);
       if(event.target.value < minAmount || event.target.value > available){
         setAgree(false);
         toast.warn('Please order within the limit of available and minimum order', {
@@ -112,14 +120,6 @@ const PartDetail = () => {
     <p>Email: {user.email}</p>
   </div>
 </div>
-
-
-
-
-
-
-
-
       <div className='container mx-auto'>
       <h2 className='text-3xl font-bold mt-5 text-center' >CheckOut Form</h2>
       <form className='text-center mx-5' onSubmit={handleSubmit(handleOrder)}>
@@ -149,13 +149,12 @@ const PartDetail = () => {
 
 </div>
 
-
+<p className='mt-5 text-2xl font-bold'>Total Price: {total || 0}</p>
   <input className='btn w-half max-w-xs mt-5' disabled={!agree} type="submit" value="Place Order" />
 </form>
 </div>
 <ToastContainer />
     </div>
-
     )
     }
 
