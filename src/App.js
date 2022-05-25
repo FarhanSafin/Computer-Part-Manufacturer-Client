@@ -19,6 +19,7 @@ import AddProduct from './Pages/DashBoard/AddProduct';
 import ManageOrder from './Pages/DashBoard/ManageOrder';
 import ManageProducts from './Pages/DashBoard/ManageProducts';
 import RequireAdmin from './Pages/Login/RequireAdmin/RequireAdmin';
+import UpdatedProfile from './Pages/UpdatedProfile/UpdatedProfile';
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
         </Route>
         <Route path='/registration' element={<Registration></Registration>}></Route>
         <Route path='/about' element={<About></About>}></Route>
+        <Route path='/updated' element={<UpdatedProfile></UpdatedProfile>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
