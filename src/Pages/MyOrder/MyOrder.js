@@ -1,16 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
+import { signOut } from 'firebase/auth';
 
 const MyOrder = () => {
     const [user, loading] = useAuthState(auth);
     const [parts, setParts] = useState([]);
+    const navigate = useNavigate();
     useEffect(() => {
         if(user){
-            fetch(`http://localhost:5000/myItems?email=${user.email}`)
-            .then(res => res.json())
-            .then(data => setParts(data))
+            fetch(`http://localhost:5000/myOrders?email=${user.email}`,{
+                method: 'GET',
+                headers:{
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
+            .then(res => {
+                if(res.status === 401 || res.status === 403){
+                    signOut(auth);
+                    localStorage.removeItem('accessToken')
+                    navigate('/');
+                }
+                return res.json()
+            })
+            .then(data => {
+                setParts(data)
+            })
         }
     }, [user])
 
@@ -24,7 +41,7 @@ const MyOrder = () => {
             })
             .then(res => res.json())
             .then(data => {
-                const remaining = parts.filter(vehicle => vehicle._id !== id);
+                const remaining = parts.filter(part => part._id !== id);
                 setParts(remaining);
             })
         }

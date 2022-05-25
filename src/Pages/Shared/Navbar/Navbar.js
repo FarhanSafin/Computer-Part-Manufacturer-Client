@@ -10,6 +10,7 @@ const Navbar = () => {
 
   const handleSignOut = () => {
     signOut(auth);
+    localStorage.removeItem('accessToken')
     const path = `/`;
     navigate(path);
 }
