@@ -21,7 +21,7 @@ const AddProduct = () => {
         .then(result => {
           if(result.success){
             const img = result.data.url;
-            const review ={
+            const part ={
               pic: img,
               name: event.name,
               price: event.price,
@@ -34,7 +34,7 @@ const AddProduct = () => {
               headers:{
                 'content-type': 'application/json'
               },
-              body: JSON.stringify(review)
+              body: JSON.stringify(part)
             })
             .then(res => res.json())
             .then(data => toast.success('Product Added successfully', {
