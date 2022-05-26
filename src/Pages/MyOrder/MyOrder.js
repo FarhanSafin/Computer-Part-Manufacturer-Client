@@ -4,10 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
 import { signOut } from 'firebase/auth';
+import DeleteModal from './DeleteModal';
 
 const MyOrder = () => {
     const [user, loading] = useAuthState(auth);
     const [orders, setOrders] = useState([]);
+    const [deletingOrder, setDeletingOrder] = useState(null);
     const navigate = useNavigate();
     useEffect(() => {
         if(user){
@@ -32,20 +34,7 @@ const MyOrder = () => {
     }, [user])
 
 
-    const handleDelete = id => {
-        const proceed = window.confirm ('Are you sure?');
-        if(proceed){
-            const url = `http://localhost:5000/order/${id}`;
-            fetch(url, {
-                method: 'DELETE',
-            })
-            .then(res => res.json())
-            .then(data => {
-                const remaining = orders.filter(order => order._id !== id);
-                setOrders(remaining);
-            })
-        }
-    }
+
 
     if(loading){
         return <Loading></Loading>
@@ -77,10 +66,7 @@ const MyOrder = () => {
         <td>{order.amount}</td>
         <td>{order.payment}</td>
         <td className='d-flex'>
-                        <button className='btn btn-outline btn-warning' onClick={() => handleDelete(order._id)}><svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-  <path strokeLinecap="round" strokeLinejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-</svg>
-                        </button>
+        <label onClick={() => setDeletingOrder(order)} for="delete-confirm-modal" class="btn btn-outline btn-warning">Delete</label>
                         </td>
       </tr>)
     }
@@ -88,6 +74,14 @@ const MyOrder = () => {
     </tbody>
   </table>
 </div>
+{
+    deletingOrder && <DeleteModal
+    deletingOrder={deletingOrder}
+    setDeletingOrder={setDeletingOrder}
+    orders={orders}
+    setOrders={setOrders}
+    ></DeleteModal>
+}
             </div>
         )
     }
