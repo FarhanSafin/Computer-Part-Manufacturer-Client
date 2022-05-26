@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import Loading from '../Shared/Loading/Loading'
 import {
     CardElement,
     Elements,
     useStripe,
     useElements,
   } from '@stripe/react-stripe-js';
+  import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CheckoutForm = ({order}) => {
     const stripe = useStripe();
@@ -41,6 +44,15 @@ const CheckoutForm = ({order}) => {
 
     const handlePayment = async (event) => {
         event.preventDefault();
+        toast.info('Please wait while your transaction is processing', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
         if(!stripe || !elements){
             return 
         }
@@ -69,7 +81,6 @@ const CheckoutForm = ({order}) => {
           },
         },
       );
-
 
       if(intentError){
           setCardError(intentError?.message);
@@ -146,7 +157,7 @@ const CheckoutForm = ({order}) => {
           </div>
     
       }
-
+      <ToastContainer />
         </>
     );
 };
