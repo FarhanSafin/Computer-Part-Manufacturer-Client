@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router';
 import './App.css';
-import About from './Pages/About/About';
 import AllParts from './Pages/AllParts/AllParts';
 import Blog from './Pages/Blog/Blog';
 import Dashboard from './Pages/DashBoard/Dashboard';
@@ -22,6 +21,8 @@ import RequireAdmin from './Pages/Login/RequireAdmin/RequireAdmin';
 import UpdatedProfile from './Pages/UpdatedProfile/UpdatedProfile';
 import Payment from './Pages/DashBoard/Payment';
 import StatusUpdated from './Pages/DashBoard/StatusUpdated';
+import MyPortfolio from './Pages/MyPortfolio/MyPortfolio';
+import NotFound from './Pages/NotFound/NotFound';
 
 function App() {
   return (
@@ -47,8 +48,9 @@ function App() {
           <Route path='manageproducts' element={<ManageProducts></ManageProducts>}></Route>
         </Route>
         <Route path='/registration' element={<Registration></Registration>}></Route>
-        <Route path='/about' element={<About></About>}></Route>
+        <Route path='/myportfolio' element={<MyPortfolio></MyPortfolio>}></Route>
         <Route path='/updated' element={<UpdatedProfile></UpdatedProfile>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
     </div>

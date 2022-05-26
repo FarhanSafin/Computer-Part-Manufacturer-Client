@@ -2,10 +2,9 @@ import React from 'react';
 
 const DeleteModal = ({deletingOrder, orders, setOrders, setDeletingOrder}) => {
 
+const {partName} = deletingOrder;
 
-    const {partName} = deletingOrder;
-
-    const handleDelete = id => {
+const handleDelete = id => {
             const url = `https://fathomless-shore-83149.herokuapp.com/order/${id}`;
             fetch(url, {
               method: 'DELETE',
@@ -21,16 +20,8 @@ const DeleteModal = ({deletingOrder, orders, setOrders, setDeletingOrder}) => {
             })
     }
 
-
-
-
-
-    
     return (
         <div>
-
-
-
 <input type="checkbox" id="delete-confirm-modal" className="modal-toggle" />
 <div className="modal modal-bottom sm:modal-middle">
   <div className="modal-box">

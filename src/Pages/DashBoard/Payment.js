@@ -11,14 +11,11 @@ import {
   } from '@stripe/react-stripe-js';
 import CheckoutForm from './CheckoutForm';
 
-
 const stripePromise = loadStripe('pk_test_51L3bU1LdroYg5QCG4apYT2F8ZaW5hOSC2mFXBbroFKfcQNH9ICKqnEHdJa9vxIYxwretF0jU0tKPxg41czSrS2sF00DUyKJPG3');
 
 const Payment = () => {
     const {id} = useParams();
     const url =`https://fathomless-shore-83149.herokuapp.com/order/${id}`;
-
-
 
     const {data: order, isLoading} = useQuery(['order', id], () => fetch(url, {
         method: 'GET',
@@ -54,14 +51,6 @@ const Payment = () => {
             </div>
         );
     }
-
-
-
-
-
-
-
-
 };
 
 export default Payment;

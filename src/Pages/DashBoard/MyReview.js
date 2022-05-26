@@ -58,16 +58,9 @@ const MyReview = () => {
           
 }
 
-
-
-
-
-
     return (
         <div>
             <h2 className='text-center text-2xl font-bold'>Please add a review using the form below</h2>
-
-
             <form className='text-center mx-5' onSubmit={handleSubmit(handleReview)}>
 
 <div className="form-control w-full max-w-xs md:mx-80">
@@ -83,7 +76,6 @@ const MyReview = () => {
 </select>
 </div>
 
-
 <div className="form-control w-full max-w-xs md:mx-80">
 <label className="label">
 <span className="label-text md:mx-96 md:px-5">Description</span>
@@ -92,9 +84,6 @@ const MyReview = () => {
 
 </div>
 
-
-
-
 <div className="form-control w-full max-w-xs md:mx-80">
 <label className="label">
 <span className="label-text md:mx-96 md:px-9">Photo</span>
@@ -102,9 +91,6 @@ const MyReview = () => {
 <input type="file" className="pt-2 input input-bordered w-full max-w-xs md:mx-72" required {...register("pic")}/>
 
 </div>
-
-
-
 
   <input className='btn w-half max-w-xs mt-5' type="submit" value="Place Order" />
 </form>

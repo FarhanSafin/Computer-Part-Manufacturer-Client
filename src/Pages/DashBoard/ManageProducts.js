@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
-import useParts from '../../hooks/useParts';
 import Loading from '../Shared/Loading/Loading';
 import DeleteConfirmModal from './DeleteConfirmModal';
 
@@ -11,21 +10,6 @@ const ManageProducts = () => {
           authorization: `Bearer ${localStorage.getItem('accessToken')}`
       }
   }).then(res=>res.json()));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     const [deletingProduct, setDeletingProduct] = useState(null);
 
@@ -74,11 +58,6 @@ const ManageProducts = () => {
         </div>
     );
     }
-
-
-
-
-    
 };
 
 export default ManageProducts;

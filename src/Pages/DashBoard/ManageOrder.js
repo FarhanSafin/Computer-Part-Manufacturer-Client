@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import Loading from '../Shared/Loading/Loading';
 import DeleteOrderModal from './DeleteOrderModal';
 
-
 const ManageOrder = () => {
     const navigate = useNavigate();
     const [deletingOrder, setDeletingOrder] = useState(null);
@@ -15,14 +14,6 @@ const ManageOrder = () => {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
     }).then(res=>res.json()));
-
-
-
-
-
-
-
-
 
     const updateOrder = id => {
       fetch(`https://fathomless-shore-83149.herokuapp.com/updatestatus/${id}`,{
@@ -37,29 +28,6 @@ const ManageOrder = () => {
     navigate(path);
  
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     if(isLoading){
       <Loading></Loading>
@@ -97,19 +65,16 @@ const ManageOrder = () => {
         {
 
 
-          order.paid === 'UnPaid'  ? <label onClick={() => setDeletingOrder(order)} for="delete-allorder-modal" class="btn btn-outline btn-warning"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          order.paid === 'UnPaid'  ? <label onClick={() => setDeletingOrder(order)} for="delete-allorder-modal" className="btn btn-outline btn-warning"><svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
   <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-</svg></label> : <label disabled for="delete-allorder-modal" onClick={() => setDeletingOrder(order)} class="btn btn-outline btn-warning"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+</svg></label> : <label disabled for="delete-allorder-modal" onClick={() => setDeletingOrder(order)} className="btn btn-outline btn-warning"><svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
   <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
 </svg></label>
-          
-          
-          
+
           }
         </td>
       </tr>)
     }
-
     </tbody>
   </table>
 </div>
@@ -120,14 +85,10 @@ const ManageOrder = () => {
   refetch={refetch}
   ></DeleteOrderModal>
 }
-        </div>
+</div>
     );
     }
 
-
-
-
-   
 };
 
 export default ManageOrder;
