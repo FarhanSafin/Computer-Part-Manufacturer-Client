@@ -16,7 +16,7 @@ const ManageOrder = () => {
         <th>Ordered Item</th>
         <th>Ordered Quantity</th>
         <th>Total Price</th>
-        <th>Payment</th>
+        <th>Status</th>
       </tr>
     </thead>
     <tbody>
@@ -28,7 +28,7 @@ const ManageOrder = () => {
         <td>{order.partName}</td>
         <td>{order.ordered}</td>
         <td>{order.price}</td>
-        <td>{order.payment}</td>
+        <td>{order.paid ? <span>{order.paid}</span> : <span>UnPaid</span>}</td>
       </tr>)
     }
 
