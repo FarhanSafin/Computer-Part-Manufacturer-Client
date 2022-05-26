@@ -17,14 +17,14 @@ const Parts = () => {
           {
             slicedDatas.map(data => <div key={data._id} className="hero mb-20 bg-slate-800 border-solid border-2 border-slate-400 rounded-lg">
 <div className="hero-content flex-col lg:flex-row-reverse">
-<img src={data.pic} className="max-w-sm rounded-lg shadow-2xl w-72" alt='part' />
+<img src={data.pic} className="max-w-sm rounded-lg shadow-2xl w-64" alt='part' />
   <div>
     <h1 className="text-3xl font-bold">{data.name}</h1>
-    <p className="py-6 text-xl">Description: {data.description}</p>
-    <p className="py-6">Available: {data.available}</p>
-    <p className="py-6">Minimum Order{data.minimum}</p>
-    <p className="py-6">Price: {data.price}</p>
-    <button className="btn btn-outline btn-secondary mt-32" onClick={() => showPartDetail(data._id)}>Place Order</button>
+    <p className="py-4 text-xl">Description: {data.description}</p>
+    <p className="py-4">Available: {data.available}</p>
+    <p className="py-4">Minimum Order: {data.minimum}</p>
+    <p className="py-4">Price: {data.price}</p>
+    <button className="btn btn-outline btn-secondary mt-16" onClick={() => showPartDetail(data._id)}>Place Order</button>
   </div>
 </div>
 </div>)

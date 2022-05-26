@@ -28,16 +28,16 @@ const DeleteConfirmModal = ({deletingProduct, refetch, setDeletingProduct}) => {
         <div>
 
 
-<input type="checkbox" id="delete-confirm-modal" class="modal-toggle" />
-<div class="modal modal-bottom sm:modal-middle">
-  <div class="modal-box">
-    <h3 class="font-bold text-lg text-red-500">Are you sure you want to delete {name}?</h3>
-    <p class="py-4">You can not revert the action</p>
-    <div class="modal-action">
+<input type="checkbox" id="delete-confirm-modal" className="modal-toggle" />
+<div className="modal modal-bottom sm:modal-middle">
+  <div className="modal-box">
+    <h3 className="font-bold text-lg text-red-500">Are you sure you want to delete {name}?</h3>
+    <p className="py-4">You can not revert the action</p>
+    <div className="modal-action">
               
     <button className='btn btn-outline btn-error' onClick={() => handleDelete(deletingProduct._id)}>Delete
                         </button>
-      <label for="delete-confirm-modal" class="btn">Cancel</label>
+      <label for="delete-confirm-modal" className="btn">Cancel</label>
     </div>
   </div>
 </div>

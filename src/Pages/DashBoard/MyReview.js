@@ -73,7 +73,7 @@ const MyReview = () => {
 <label className="label md:mx-96">
 <span className="label-text md:px-8">Ratings</span>
 </label>
-<select class="select select-bordered w-full max-w-xs md:mx-72" {...register("rating")}>
+<select className="select select-bordered w-full max-w-xs md:mx-72" {...register("rating")}>
   <option selected>1</option>
   <option>2</option>
   <option>3</option>

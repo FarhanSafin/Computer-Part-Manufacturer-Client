@@ -66,7 +66,7 @@ const MyOrder = () => {
         <td>{order.amount}</td>
         <td>{order.payment}</td>
         <td className='d-flex'>
-        <label onClick={() => setDeletingOrder(order)} for="delete-confirm-modal" class="btn btn-outline btn-warning">Delete</label>
+        <label onClick={() => setDeletingOrder(order)} for="delete-confirm-modal" className="btn btn-outline btn-warning">Delete</label>
                         </td>
       </tr>)
     }
