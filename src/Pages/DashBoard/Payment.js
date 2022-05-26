@@ -16,7 +16,7 @@ const stripePromise = loadStripe('pk_test_51L3bU1LdroYg5QCG4apYT2F8ZaW5hOSC2mFXB
 
 const Payment = () => {
     const {id} = useParams();
-    const url =`http://localhost:5000/order/${id}`;
+    const url =`https://fathomless-shore-83149.herokuapp.com/order/${id}`;
 
 
 
@@ -37,7 +37,7 @@ const Payment = () => {
     <h2 className="card-title">Pay for {order.partName}</h2>
     <h2 className="card-title">Quantity: {order.ordered}</h2>
     <p>We will contact you and deliver the product ASAP after the payment</p>
-    <p>Please Pay: <span className='text-info font-bold'>৳{order.price}</span></p>
+    <p>Please Pay: <span className='text-info font-bold'>${order.price}</span></p>
   </div>
 </div>
 

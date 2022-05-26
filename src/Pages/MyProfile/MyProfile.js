@@ -13,7 +13,7 @@ const MyProfile = () => {
     const { register,  handleSubmit } = useForm();
     const [data, setDatas] = useState([]);
         useEffect(() =>{
-            const url = `http://localhost:5000/user/profile/${user.email}`;
+            const url = `https://fathomless-shore-83149.herokuapp.com/user/profile/${user.email}`;
             fetch(url, {
                 headers:{
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -32,11 +32,13 @@ const MyProfile = () => {
                 linkedin: event.linkedin,
                 Phone: event.mobile
               }
-                            
-              fetch(`http://localhost:5000/adduserinfo/${user.email}`,{
+
+    
+              fetch(`https://fathomless-shore-83149.herokuapp.com/adduserinfo/${user.email}`,{
                 method: 'PUT',
                 headers:{
-                  'content-type': 'application/json'
+                  'content-type': 'application/json',
+                  authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 },
                 body: JSON.stringify(userData)
               })

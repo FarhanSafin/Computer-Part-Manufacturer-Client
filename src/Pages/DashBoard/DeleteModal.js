@@ -6,10 +6,13 @@ const DeleteModal = ({deletingOrder, orders, setOrders, setDeletingOrder}) => {
     const {partName} = deletingOrder;
 
     const handleDelete = id => {
-            const url = `http://localhost:5000/order/${id}`;
+            const url = `https://fathomless-shore-83149.herokuapp.com/order/${id}`;
             fetch(url, {
-                method: 'DELETE',
-            })
+              method: 'DELETE',
+              headers:{
+                  authorization: `Bearer ${localStorage.getItem('accessToken')}`
+              }
+          })
             .then(res => res.json())
             .then(data => {
                 const remaining = orders.filter(order => order._id !== id);
@@ -34,9 +37,7 @@ const DeleteModal = ({deletingOrder, orders, setOrders, setDeletingOrder}) => {
     <h3 className="font-bold text-lg text-red-600">Delete your order of {partName}?</h3>
     <p className="py-4  font-bold">This action can not be reverted</p>
     <div className="modal-action">
-    <button className='btn btn-outline btn-warning' onClick={() => handleDelete(deletingOrder._id)}><svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-  <path strokeLinecap="round" strokeLinejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-</svg>
+    <button className='btn btn-outline btn-error' onClick={() => handleDelete(deletingOrder._id)}>Delete
                         </button>
       <label for="delete-confirm-modal" className="btn">Cancel</label>
     </div>

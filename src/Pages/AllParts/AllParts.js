@@ -22,7 +22,7 @@ const AllParts = () => {
   <p className="py-6 text-xl">Description: {data.description}</p>
   <p className="py-6">Available: {data.available}</p>
   <p className="py-6">Minimum Quantity need to purchase: {data.minimum}</p>
-  <p className="py-6">Price: ৳{data.price}</p>
+  <p className="py-6">Price: ${data.price}</p>
   <button className="btn btn-outline btn-secondary mt-32" onClick={() => showPartDetail(data._id)}>Place Order</button>
 </div>
 </div>

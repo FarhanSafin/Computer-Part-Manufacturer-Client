@@ -23,7 +23,7 @@ const Parts = () => {
     <p className="py-4 text-xl">Description: {data.description}</p>
     <p className="py-4">Available: {data.available}</p>
     <p className="py-4">Minimum Order: {data.minimum}</p>
-    <p className="py-4">Price: ৳{data.price}</p>
+    <p className="py-4">Price: ${data.price}</p>
     <button className="btn btn-outline btn-secondary mt-16" onClick={() => showPartDetail(data._id)}>Place Order</button>
   </div>
 </div>

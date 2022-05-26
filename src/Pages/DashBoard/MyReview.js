@@ -33,10 +33,11 @@ const MyReview = () => {
                 rating: event.rating,
                 description: event.description,
               }
-              fetch(`http://localhost:5000/addreview`,{
+              fetch(`https://fathomless-shore-83149.herokuapp.com/addreview`,{
                 method: 'POST',
                 headers:{
-                  'content-type': 'application/json'
+                  'content-type': 'application/json',
+                  authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 },
                 body: JSON.stringify(review)
               })

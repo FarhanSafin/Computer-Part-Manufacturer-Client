@@ -38,10 +38,11 @@ const AddProduct = () => {
               minimum: event.minimum,
               description: event.description,
             }
-            fetch(`http://localhost:5000/addpart`,{
+            fetch(`https://fathomless-shore-83149.herokuapp.com/addpart`,{
               method: 'POST',
               headers:{
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
               },
               body: JSON.stringify(part)
             })

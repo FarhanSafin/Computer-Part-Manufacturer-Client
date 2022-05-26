@@ -5,12 +5,15 @@ import UserRow from './UserRow';
 
 const Users = () => {
     
-    const {data: users, isLoading, refetch} = useQuery('users', () => fetch('http://localhost:5000/users', {
+    const {data: users, isLoading, refetch} = useQuery('users', () => fetch('https://fathomless-shore-83149.herokuapp.com/users', {
         method: 'GET',
         headers:{
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
     }).then(res=>res.json()));
+
+
+    
     if(isLoading){
         return <Loading></Loading>
     }

@@ -6,7 +6,7 @@ const useParts = () => {
     const [parts, setParts] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/partslist')
+        fetch('https://fathomless-shore-83149.herokuapp.com/partslist')
         .then(res => res.json())
         .then(data => setParts(data));
     }, []);

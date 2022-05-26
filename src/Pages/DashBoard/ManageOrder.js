@@ -1,15 +1,31 @@
 import React, { useState } from 'react';
+import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
-import useOrders from '../../hooks/useOrders';
+import Loading from '../Shared/Loading/Loading';
+import DeleteOrderModal from './DeleteOrderModal';
 
 
 const ManageOrder = () => {
-    const [orders, setOrders] = useOrders();
     const navigate = useNavigate();
+    const [deletingOrder, setDeletingOrder] = useState(null);
+    
+    const {data: orders, isLoading, refetch} = useQuery('orders', () => fetch('https://fathomless-shore-83149.herokuapp.com/allorders', {
+        method: 'GET',
+        headers:{
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        }
+    }).then(res=>res.json()));
+
+
+
+
+
+
+
 
 
     const updateOrder = id => {
-      fetch(`http://localhost:5000/updatestatus/${id}`,{
+      fetch(`https://fathomless-shore-83149.herokuapp.com/updatestatus/${id}`,{
         method: 'PUT',
         headers: {
           authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -22,23 +38,33 @@ const ManageOrder = () => {
  
     }
 
-    const handleDelete = id => {
-      const url = `http://localhost:5000/customerorder/${id}`;
-      fetch(url, {
-          method: 'DELETE',
-      })
-      .then(res => res.json())
-      .then(data => {
-          const remaining = orders.filter(order => order._id !== id);
-          setOrders(remaining);
-      })
-}
 
 
 
 
 
-    return (
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    if(isLoading){
+      <Loading></Loading>
+    }else{
+      return (
         <div>
             <h2>All orders: {orders.length}</h2>
                 <div className="overflow-x-auto">
@@ -68,8 +94,18 @@ const ManageOrder = () => {
         <td>{order.paid}</td>
         <td>{order.paid !== 'Pending' ? <span className='btn' disabled onClick={() => updateOrder(order._id)}>Update</span> : <span className='btn' onClick={() => updateOrder(order._id)}>Update</span>}</td>
         <td>
+        {
 
-        {order.paid === 'UnPaid'  ? <label onClick={() => handleDelete(order._id)} for="delete-confirm-modal" className="btn btn-outline btn-warning">Delete</label> : <label disabled  onClick={() => handleDelete(order._id)} for="delete-confirm-modal" className="btn btn-outline btn-warning">Delete</label>}
+
+          order.paid === 'UnPaid'  ? <label onClick={() => setDeletingOrder(order)} for="delete-allorder-modal" class="btn btn-outline btn-warning"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+</svg></label> : <label disabled for="delete-allorder-modal" onClick={() => setDeletingOrder(order)} class="btn btn-outline btn-warning"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+</svg></label>
+          
+          
+          
+          }
         </td>
       </tr>)
     }
@@ -77,8 +113,21 @@ const ManageOrder = () => {
     </tbody>
   </table>
 </div>
+{
+  deletingOrder && <DeleteOrderModal
+  deletingOrder={deletingOrder}
+  setDeletingOrder={setDeletingOrder}
+  refetch={refetch}
+  ></DeleteOrderModal>
+}
         </div>
     );
+    }
+
+
+
+
+   
 };
 
 export default ManageOrder;

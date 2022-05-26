@@ -23,7 +23,7 @@ const CheckoutForm = ({order}) => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/createpaymentintent', {
+        fetch('https://fathomless-shore-83149.herokuapp.com/createpaymentintent', {
             method: 'POST',
             headers:{
                 'content-type': 'application/json',
@@ -99,7 +99,7 @@ const CheckoutForm = ({order}) => {
 
 
 
-          fetch(`http://localhost:5000/order/${_id}`, {
+          fetch(`https://fathomless-shore-83149.herokuapp.com/order/${_id}`, {
             method: 'PATCH',
             headers:{
                 'content-type': 'application/json',

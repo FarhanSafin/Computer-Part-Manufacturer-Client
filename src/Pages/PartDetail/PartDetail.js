@@ -16,8 +16,13 @@ const PartDetail = () => {
     const [part, setPart] = useState({});
     useEffect(() => {
       if(user){
-        const url = `http://localhost:5000/part/${partId}`;
-        fetch(url)
+        const url = `https://fathomless-shore-83149.herokuapp.com/part/${partId}`;
+        fetch(url , {
+          method: 'GET',
+          headers:{
+              authorization: `Bearer ${localStorage.getItem('accessToken')}`
+          }
+      })
         .then(res => res.json())
         .then(data => setPart(data));
     }
@@ -48,7 +53,7 @@ const total = price * orderedAmount;
           paid: "UnPaid"
         }
         
-        fetch('http://localhost:5000/addorder',{
+        fetch('https://fathomless-shore-83149.herokuapp.com/addorder',{
           method: 'POST',
           headers:{
             'content-type': 'application/json'
@@ -57,7 +62,7 @@ const total = price * orderedAmount;
         })
         .then(res => res.json())
         .then(data => {
-          toast.success('Order Successfull', {
+          toast.success('Order Successfull. Please go to dashboard to complete your payment.', {
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
@@ -112,7 +117,7 @@ const total = price * orderedAmount;
     <p>Description: {part.description}</p>
     <p>Minimum: {part.minimum}</p>
     <p>Available: {part.available}</p>
-    <p>Price: ৳{part.price}</p>
+    <p>Price: ${part.price}</p>
   </div>
   <div>
     <h2 className='text-center text-2xl font-bold'>Logged In User: </h2>

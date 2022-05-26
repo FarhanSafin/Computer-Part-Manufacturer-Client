@@ -3,10 +3,13 @@ import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfil
 import auth from '../../../firebase.init';
 import { useForm } from "react-hook-form";
 import Loading from '../../Shared/Loading/Loading';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useToken from '../../../hooks/useToken';
 
 const Registration = () => {
+  
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [
@@ -26,10 +29,11 @@ const Registration = () => {
       if(loading || gLoading || updating){
           return <Loading></Loading>
       }
+
     
 
-    if(token){
-        navigate('/allparts')
+    if(user || gUser){
+      navigate(from, {replace: true});
     }
 
 
