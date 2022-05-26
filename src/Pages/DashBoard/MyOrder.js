@@ -47,11 +47,11 @@ const MyOrder = () => {
         <th className='text-center'></th>
         <th>Buyer's Name</th>
         <th>Item</th>
-        <th>id</th>
     <th>Ordered Amount</th>
         <th>Total Price</th>
-        <th>Payment Detail</th>
         <th>Pay</th>
+        <th>Transaction ID</th>
+
         <th>Cancel Order</th>
       </tr>
     </thead>
@@ -61,10 +61,8 @@ const MyOrder = () => {
         <th>{index + 1}</th>
         <td>{order.userName}</td>
         <td>{order.partName}</td>
-        <td>{order._id}</td>
         <td>{order.ordered}</td>
         <td>{order.price}</td>
-        <td>{order.payment}</td>
         <td>
 
         {(order.price && !order.paid) && <Link to={`/dashboard/payment/${order._id}`}>
@@ -72,13 +70,27 @@ const MyOrder = () => {
         </Link>}
 
         {(order.price && order.paid) && 
-        <span className='text-success'>Paid</span>
+        <span className='text-success mx-3'>Paid</span>
         }
         
         </td>
+        <td>
+
+        {(!order.transactionId) && <Link to={`/dashboard/payment/${order._id}`}>
+        <p>Not done</p>
+        </Link>}
+
+        {(order.transactionId) && 
+        <span className='font-bold'>{order.transactionId}</span>
+        }
+
+
+        </td>
         <td className='d-flex'>
-        <label onClick={() => setDeletingOrder(order)} for="delete-confirm-modal" className="btn btn-outline btn-warning">Delete</label>
-                        </td>
+        {
+            order.transactionId ? <label onClick={() => setDeletingOrder(order)} for="delete-confirm-modal" disabled className="btn btn-outline btn-warning">Delete</label> : <label onClick={() => setDeletingOrder(order)} for="delete-confirm-modal" className="btn btn-outline btn-warning">Delete</label>
+        }
+        </td>
       </tr>)
     }
       
