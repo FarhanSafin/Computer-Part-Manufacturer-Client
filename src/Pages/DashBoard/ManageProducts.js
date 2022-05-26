@@ -28,7 +28,6 @@ const ManageProducts = () => {
 
 
     const [deletingProduct, setDeletingProduct] = useState(null);
-    console.log(deletingProduct);
 
 
     if(isLoading){

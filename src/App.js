@@ -21,6 +21,7 @@ import ManageProducts from './Pages/DashBoard/ManageProducts';
 import RequireAdmin from './Pages/Login/RequireAdmin/RequireAdmin';
 import UpdatedProfile from './Pages/UpdatedProfile/UpdatedProfile';
 import Payment from './Pages/DashBoard/Payment';
+import StatusUpdated from './Pages/DashBoard/StatusUpdated';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         <Route index element={<MyProfile></MyProfile>}></Route>
           <Route path='order'  element={<MyOrder></MyOrder>}></Route>
           <Route path='review' element={<MyReview></MyReview>}></Route>
+          <Route path='statusupdated' element={<StatusUpdated></StatusUpdated>}></Route>
           <Route path='payment/:id' element={<Payment></Payment>}></Route>
           <Route path='users' element={<RequireAdmin><Users></Users></RequireAdmin>}></Route>
           <Route path='addproduct' element={<AddProduct></AddProduct>}></Route>

@@ -77,7 +77,6 @@ const CheckoutForm = ({order}) => {
       }else{
           setCardError('');
           setTransactionId(paymentIntent.id)
-          console.log(paymentIntent);
           setSuccess('Your payment is completed')
 
 
@@ -101,7 +100,6 @@ const CheckoutForm = ({order}) => {
           ).then(res=>res.json())
           .then(data => {
                 setProcessing(false)
-              console.log(data);
           })
       }
 

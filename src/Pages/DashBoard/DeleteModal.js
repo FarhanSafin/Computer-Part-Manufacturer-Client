@@ -1,7 +1,6 @@
 import React from 'react';
 
 const DeleteModal = ({deletingOrder, orders, setOrders, setDeletingOrder}) => {
-    console.log(deletingOrder);
 
 
     const {partName} = deletingOrder;
