@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
 import { signOut } from 'firebase/auth';
@@ -33,9 +33,6 @@ const MyOrder = () => {
         }
     }, [user])
 
-
-
-
     if(loading){
         return <Loading></Loading>
     }else{
@@ -50,9 +47,11 @@ const MyOrder = () => {
         <th className='text-center'></th>
         <th>Buyer's Name</th>
         <th>Item</th>
+        <th>id</th>
         <th>Ordered Amount</th>
         <th>Total Price</th>
         <th>Payment Detail</th>
+        <th>Pay</th>
         <th>Cancel Order</th>
       </tr>
     </thead>
@@ -62,9 +61,21 @@ const MyOrder = () => {
         <th>{index + 1}</th>
         <td>{order.userName}</td>
         <td>{order.partName}</td>
+        <td>{order._id}</td>
         <td>{order.ordered}</td>
         <td>{order.amount}</td>
         <td>{order.payment}</td>
+        <td>
+
+        {(order.amount && !order.paid) && <Link to={`/dashboard/payment/${order._id}`}>
+        <button className='btn btn-success'>Pay</button>
+        </Link>}
+
+        {(order.amount && order.paid) && 
+        <span className='text-success'>Paid</span>
+        }
+        
+        </td>
         <td className='d-flex'>
         <label onClick={() => setDeletingOrder(order)} for="delete-confirm-modal" className="btn btn-outline btn-warning">Delete</label>
                         </td>

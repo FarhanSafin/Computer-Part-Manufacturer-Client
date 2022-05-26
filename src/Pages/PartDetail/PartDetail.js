@@ -112,7 +112,7 @@ const total = price * orderedAmount;
     <p>Description: {part.description}</p>
     <p>Minimum: {part.minimum}</p>
     <p>Available: {part.available}</p>
-    <p>Price: {part.price}</p>
+    <p>Price: ৳{part.price}</p>
   </div>
   <div>
     <h2 className='text-center text-2xl font-bold'>Logged In User: </h2>

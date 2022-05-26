@@ -8,7 +8,6 @@ import Home from './Pages/Home/Home/Home';
 import Registration from './Pages/Login/Registration/Registration'
 import Login from './Pages/Login/Login/Login';
 import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
-import MyOrder from './Pages/MyOrder/MyOrder';
 import MyProfile from './Pages/MyProfile/MyProfile';
 import PartDetail from './Pages/PartDetail/PartDetail';
 import Footer from './Pages/Shared/Footer/Footer';
@@ -16,10 +15,12 @@ import Navbar from './Pages/Shared/Navbar/Navbar';
 import Users from './Pages/DashBoard/Users';
 import AddProduct from './Pages/DashBoard/AddProduct';
 import ManageOrder from './Pages/DashBoard/ManageOrder';
+import MyOrder from './Pages/DashBoard/MyOrder';
 import MyReview from './Pages/DashBoard/MyReview';
 import ManageProducts from './Pages/DashBoard/ManageProducts';
 import RequireAdmin from './Pages/Login/RequireAdmin/RequireAdmin';
 import UpdatedProfile from './Pages/UpdatedProfile/UpdatedProfile';
+import Payment from './Pages/DashBoard/Payment';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         <Route index element={<MyProfile></MyProfile>}></Route>
           <Route path='order'  element={<MyOrder></MyOrder>}></Route>
           <Route path='review' element={<MyReview></MyReview>}></Route>
+          <Route path='payment/:id' element={<Payment></Payment>}></Route>
           <Route path='users' element={<RequireAdmin><Users></Users></RequireAdmin>}></Route>
           <Route path='addproduct' element={<AddProduct></AddProduct>}></Route>
           <Route path='manageorder' element={<ManageOrder></ManageOrder>}></Route>
