@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useOrders from '../../hooks/useOrders';
 
 
 const ManageOrder = () => {
-    const [orders] = useOrders();
+    const [orders, setOrders] = useOrders();
     const navigate = useNavigate();
 
 
@@ -22,9 +22,17 @@ const ManageOrder = () => {
  
     }
 
-
-
-
+    const handleDelete = id => {
+      const url = `http://localhost:5000/customerorder/${id}`;
+      fetch(url, {
+          method: 'DELETE',
+      })
+      .then(res => res.json())
+      .then(data => {
+          const remaining = orders.filter(order => order._id !== id);
+          setOrders(remaining);
+      })
+}
 
 
 
@@ -45,6 +53,7 @@ const ManageOrder = () => {
         <th>Total Price</th>
         <th>Status</th>
         <th>Actions</th>
+        <th>Cancel</th>
       </tr>
     </thead>
     <tbody>
@@ -56,8 +65,12 @@ const ManageOrder = () => {
         <td>{order.partName}</td>
         <td>{order.ordered}</td>
         <td>{order.price}</td>
-        <td>{order.paid ? <span>{order.paid}</span> : <span>UnPaid</span>}</td>
-        <td>{order.paid === 'Shipped' ? <span className='btn' disabled onClick={() => updateOrder(order._id)}>Update</span> : <span className='btn' onClick={() => updateOrder(order._id)}>Update</span>}</td>
+        <td>{order.paid}</td>
+        <td>{order.paid !== 'Pending' ? <span className='btn' disabled onClick={() => updateOrder(order._id)}>Update</span> : <span className='btn' onClick={() => updateOrder(order._id)}>Update</span>}</td>
+        <td>
+
+        {order.paid === 'UnPaid'  ? <label onClick={() => handleDelete(order._id)} for="delete-confirm-modal" className="btn btn-outline btn-warning">Delete</label> : <label disabled  onClick={() => handleDelete(order._id)} for="delete-confirm-modal" className="btn btn-outline btn-warning">Delete</label>}
+        </td>
       </tr>)
     }
 

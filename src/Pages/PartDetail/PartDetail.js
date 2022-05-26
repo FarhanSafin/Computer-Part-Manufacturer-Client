@@ -45,7 +45,7 @@ const total = price * orderedAmount;
           userPhone: event.mobile,
           ordered: event.ordered,
           price: total,
-          payment: "Not Done"
+          paid: "UnPaid"
         }
         
         fetch('http://localhost:5000/addorder',{
