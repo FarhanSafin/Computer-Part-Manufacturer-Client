@@ -5,9 +5,6 @@
     color: #E0E0E0;
     
 }
-svg{
-    width: clamp(300px , 70% , 600px);
-}
 
 .vectoricon{
     height: 500px;
