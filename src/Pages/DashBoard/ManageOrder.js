@@ -27,7 +27,7 @@ const ManageOrder = () => {
         <td>{order.email}</td>
         <td>{order.partName}</td>
         <td>{order.ordered}</td>
-        <td>{order.amount}</td>
+        <td>{order.price}</td>
         <td>{order.payment}</td>
       </tr>)
     }

@@ -37,7 +37,7 @@ const Payment = () => {
     <h2 className="card-title">Pay for {order.partName}</h2>
     <h2 className="card-title">Quantity: {order.ordered}</h2>
     <p>We will contact you and deliver the product ASAP after the payment</p>
-    <p>Please Pay: <span className='text-info font-bold'>৳{order.amount}</span></p>
+    <p>Please Pay: <span className='text-info font-bold'>৳{order.price}</span></p>
   </div>
 </div>
 

@@ -44,7 +44,7 @@ const total = price * orderedAmount;
           userAddress: event.address,
           userPhone: event.mobile,
           ordered: event.ordered,
-          amount: total,
+          price: total,
           payment: "Not Done"
         }
         
