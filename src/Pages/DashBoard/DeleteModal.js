@@ -5,7 +5,7 @@ const DeleteModal = ({deletingOrder, orders, setOrders, setDeletingOrder}) => {
 const {partName} = deletingOrder;
 
 const handleDelete = id => {
-            const url = `https://fathomless-shore-83149.herokuapp.com/order/${id}`;
+            const url = `https://pc-part-v1.herokuapp.com/order/${id}`;
             fetch(url, {
               method: 'DELETE',
               headers:{

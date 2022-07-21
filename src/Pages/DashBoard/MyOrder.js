@@ -13,7 +13,7 @@ const MyOrder = () => {
     const navigate = useNavigate();
     useEffect(() => {
         if(user){
-            fetch(`https://fathomless-shore-83149.herokuapp.com/myOrders?email=${user.email}`,{
+            fetch(`https://pc-part-v1.herokuapp.com/myOrders?email=${user.email}`,{
                 method: 'GET',
                 headers:{
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`

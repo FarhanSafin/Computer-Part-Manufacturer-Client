@@ -38,7 +38,7 @@ const AddProduct = () => {
               minimum: event.minimum,
               description: event.description,
             }
-            fetch(`https://fathomless-shore-83149.herokuapp.com/addpart`,{
+            fetch(`https://pc-part-v1.herokuapp.com/addpart`,{
               method: 'POST',
               headers:{
                 'content-type': 'application/json',

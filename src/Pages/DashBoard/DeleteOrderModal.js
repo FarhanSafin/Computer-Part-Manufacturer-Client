@@ -2,7 +2,7 @@ import React from 'react';
 const DeleteOrderModal = ({deletingOrder, setDeletingOrder, refetch}) => {
     const userName = deletingOrder.userName;
     const handleDelete = id => {
-        const url = `https://fathomless-shore-83149.herokuapp.com/customerorder/${id}`;
+        const url = `https://pc-part-v1.herokuapp.com/customerorder/${id}`;
         fetch(url, {
           method: 'DELETE',
           headers:{

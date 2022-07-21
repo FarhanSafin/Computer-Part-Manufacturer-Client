@@ -16,7 +16,7 @@ const PartDetail = () => {
     const [part, setPart] = useState({});
     useEffect(() => {
       if(user){
-        const url = `https://fathomless-shore-83149.herokuapp.com/part/${partId}`;
+        const url = `https://pc-part-v1.herokuapp.com/part/${partId}`;
         fetch(url , {
           method: 'GET',
           headers:{
@@ -53,7 +53,7 @@ const total = price * orderedAmount;
           paid: "UnPaid"
         }
         
-        fetch('https://fathomless-shore-83149.herokuapp.com/addorder',{
+        fetch('https://pc-part-v1.herokuapp.com/addorder',{
           method: 'POST',
           headers:{
             'content-type': 'application/json'

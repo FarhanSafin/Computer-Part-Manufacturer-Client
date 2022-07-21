@@ -8,7 +8,7 @@ const DeleteConfirmModal = ({deletingProduct, refetch, setDeletingProduct}) => {
     const {name} = deletingProduct;
 
     const handleDelete = id => {
-        fetch(`https://fathomless-shore-83149.herokuapp.com/part/${id}`, {
+        fetch(`https://pc-part-v1.herokuapp.com/part/${id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

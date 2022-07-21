@@ -8,7 +8,7 @@ const ManageOrder = () => {
     const navigate = useNavigate();
     const [deletingOrder, setDeletingOrder] = useState(null);
     
-    const {data: orders, isLoading, refetch} = useQuery('orders', () => fetch('https://fathomless-shore-83149.herokuapp.com/allorders', {
+    const {data: orders, isLoading, refetch} = useQuery('orders', () => fetch('https://pc-part-v1.herokuapp.com/allorders', {
         method: 'GET',
         headers:{
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -16,7 +16,7 @@ const ManageOrder = () => {
     }).then(res=>res.json()));
 
     const updateOrder = id => {
-      fetch(`https://fathomless-shore-83149.herokuapp.com/updatestatus/${id}`,{
+      fetch(`https://pc-part-v1.herokuapp.com/updatestatus/${id}`,{
         method: 'PUT',
         headers: {
           authorization: `Bearer ${localStorage.getItem('accessToken')}`
