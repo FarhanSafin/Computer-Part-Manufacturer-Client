@@ -13,7 +13,7 @@ const MyProfile = () => {
     const { register,  handleSubmit } = useForm();
     const [data, setDatas] = useState([]);
         useEffect(() =>{
-            const url = `https://pc-part-v1.herokuapp.com/user/profile/${user.email}`;
+            const url = `https://computer-part-seller.onrender.com/user/profile/${user.email}`;
             fetch(url, {
                 headers:{
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -34,7 +34,7 @@ const MyProfile = () => {
               }
 
     
-              fetch(`https://pc-part-v1.herokuapp.com/adduserinfo/${user.email}`,{
+              fetch(`https://computer-part-seller.onrender.com/adduserinfo/${user.email}`,{
                 method: 'PUT',
                 headers:{
                   'content-type': 'application/json',

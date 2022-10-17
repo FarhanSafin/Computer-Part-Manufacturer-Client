@@ -13,7 +13,7 @@ const MyOrder = () => {
     const navigate = useNavigate();
     useEffect(() => {
         if(user){
-            fetch(`https://pc-part-v1.herokuapp.com/myOrders?email=${user.email}`,{
+            fetch(`https://computer-part-seller.onrender.com/myOrders?email=${user.email}`,{
                 method: 'GET',
                 headers:{
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`

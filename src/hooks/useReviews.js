@@ -6,7 +6,7 @@ const useParts = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(()=>{
-        fetch('https://pc-part-v1.herokuapp.com/reviewslist' , {
+        fetch('https://computer-part-seller.onrender.com/reviewslist' , {
             method: 'GET',
             headers:{
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

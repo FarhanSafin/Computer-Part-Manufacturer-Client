@@ -38,7 +38,7 @@ const AddProduct = () => {
               minimum: event.minimum,
               description: event.description,
             }
-            fetch(`https://pc-part-v1.herokuapp.com/addpart`,{
+            fetch(`https://computer-part-seller.onrender.com/addpart`,{
               method: 'POST',
               headers:{
                 'content-type': 'application/json',

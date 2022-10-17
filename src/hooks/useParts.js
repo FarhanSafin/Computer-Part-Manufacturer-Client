@@ -6,7 +6,7 @@ const useParts = () => {
     const [parts, setParts] = useState([]);
 
     useEffect(()=>{
-        fetch('https://pc-part-v1.herokuapp.com/partslist')
+        fetch('https://computer-part-seller.onrender.com/partslist')
         .then(res => res.json())
         .then(data => setParts(data));
     }, []);

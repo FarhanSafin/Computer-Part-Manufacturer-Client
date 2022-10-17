@@ -5,7 +5,7 @@ import DeleteConfirmModal from './DeleteConfirmModal';
 
 const ManageProducts = () => {
 
-    const {data: parts, isLoading, refetch} = useQuery('users', () => fetch('https://pc-part-v1.herokuapp.com/partslist', {
+    const {data: parts, isLoading, refetch} = useQuery('users', () => fetch('https://computer-part-seller.onrender.com/partslist', {
       headers:{
           authorization: `Bearer ${localStorage.getItem('accessToken')}`
       }

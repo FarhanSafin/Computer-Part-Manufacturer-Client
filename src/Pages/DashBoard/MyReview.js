@@ -33,7 +33,7 @@ const MyReview = () => {
                 rating: event.rating,
                 description: event.description,
               }
-              fetch(`https://pc-part-v1.herokuapp.com/addreview`,{
+              fetch(`https://computer-part-seller.onrender.com/addreview`,{
                 method: 'POST',
                 headers:{
                   'content-type': 'application/json',

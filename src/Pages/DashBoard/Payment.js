@@ -15,7 +15,7 @@ const stripePromise = loadStripe('pk_test_51L3bU1LdroYg5QCG4apYT2F8ZaW5hOSC2mFXB
 
 const Payment = () => {
     const {id} = useParams();
-    const url =`https://pc-part-v1.herokuapp.com/order/${id}`;
+    const url =`https://computer-part-seller.onrender.com/order/${id}`;
 
     const {data: order, isLoading} = useQuery(['order', id], () => fetch(url, {
         method: 'GET',
